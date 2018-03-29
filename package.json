@@ -2,7 +2,7 @@
   "name": "project2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jrn011.github.io/project2/release/v1.0",
+  "homepage": "https://jrn011.github.io/project2",
   "dependencies": {
     "bootstrap": "^4.0.0",
     "react": "^16.2.0",
