@@ -190,6 +190,7 @@ constructor(props){
   }
 	handleDepartmentChange(event){
 	var x= 'https://www.eg.bucknell.edu/~amm042/service/q?'
+	var count=0;
 	this.setState({department:event},() => {
         if(this.state.semester!==null && this.state.semester!=="unselected"){ 
 			if(x.slice(-1)==="?"){
@@ -197,35 +198,35 @@ constructor(props){
 			}else{
 				x= x+"&Semester="+this.state.semester
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.year!==null && this.state.year!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"Year="+this.state.year
 			}else{
 				x= x+"&Year="+this.state.year
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.department!==null && this.state.department!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"Department="+this.state.department
 			}else{
 				x= x+"&Department="+this.state.department
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.ccc!==null && this.state.ccc!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"CCCReq="+this.state.ccc
 			}else{
 				x= x+"&CCCReq="+this.state.ccc
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.room!==null && this.state.room!==""){ 
 			if(x.slice(-1)==="?"){
 				x= x+"text=%22"+encodeURIComponent(this.state.room)+"%22"
 			}else{
 				x= x+"&text=%22"+encodeURIComponent(this.state.room)+"%22"
 			}
-		}
+		}else{count=count+1;}
 		x=x+'&limit=100' 
 		
 
@@ -242,7 +243,13 @@ constructor(props){
 			}
 	    if(temp.length>0){
             this.setState({list:temp})}else{this.setState({list:result.message})}
-		}else{this.setState({list:result.message})}
+		}else{	count=count+1;
+			if(count===6){
+			this.setState({list:[{Course:"Select a Year, Semester, Department, CCC Requirement, Class Time or Room to browse Course Offerings!"}]})
+			}else{
+			this.setState({list:result.message})	
+			}
+		}
            
 	   }
           else {
@@ -259,6 +266,7 @@ constructor(props){
 }
 	handleYearChange(event){
 	var x= 'https://www.eg.bucknell.edu/~amm042/service/q?'
+	var count=0;
 this.setState({year:event},() => {
         if(this.state.semester!==null && this.state.semester!=="unselected"){ 
 			if(x.slice(-1)==="?"){
@@ -266,35 +274,35 @@ this.setState({year:event},() => {
 			}else{
 				x= x+"&Semester="+this.state.semester
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.year!==null && this.state.year!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"Year="+this.state.year
 			}else{
 				x= x+"&Year="+this.state.year
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.department!==null && this.state.department!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"Department="+this.state.department
 			}else{
 				x= x+"&Department="+this.state.department
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.ccc!==null && this.state.ccc!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"CCCReq="+this.state.ccc
 			}else{
 				x= x+"&CCCReq="+this.state.ccc
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.room!==null && this.state.room!==""){ 
 			if(x.slice(-1)==="?"){
 				x= x+"text=%22"+encodeURIComponent(this.state.room)+"%22"
 			}else{
 				x= x+"&text=%22"+encodeURIComponent(this.state.room)+"%22"
 			}
-		}
+		}else{count=count+1;}
 		x=x+'&limit=100' 
 		
 
@@ -311,7 +319,13 @@ this.setState({year:event},() => {
 			}
 	    if(temp.length>0){
             this.setState({list:temp})}else{this.setState({list:result.message})}
-		}else{this.setState({list:result.message})}
+		}else{	count=count+1;
+			if(count===6){
+			this.setState({list:[{Course:"Select a Year, Semester, Department, CCC Requirement, Class Time or Room to browse Course Offerings!"}]})
+			}else{
+			this.setState({list:result.message})	
+			}
+		}
            
 	   }
           else {
@@ -332,6 +346,7 @@ this.setState({year:event},() => {
 
 	handleSemesterChange(event){
 	var x= 'https://www.eg.bucknell.edu/~amm042/service/q?'
+	var count=0;
 	this.setState({semester:event},() => {
        if(this.state.semester!==null && this.state.semester!=="unselected"){ 
 			if(x.slice(-1)==="?"){
@@ -339,35 +354,35 @@ this.setState({year:event},() => {
 			}else{
 				x= x+"&Semester="+this.state.semester
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.year!==null && this.state.year!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"Year="+this.state.year
 			}else{
 				x= x+"&Year="+this.state.year
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.department!==null && this.state.department!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"Department="+this.state.department
 			}else{
 				x= x+"&Department="+this.state.department
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.ccc!==null && this.state.ccc!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"CCCReq="+this.state.ccc
 			}else{
 				x= x+"&CCCReq="+this.state.ccc
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.room!==null && this.state.room!==""){ 
 			if(x.slice(-1)==="?"){
 				x= x+"text=%22"+encodeURIComponent(this.state.room)+"%22"
 			}else{
 				x= x+"&text=%22"+encodeURIComponent(this.state.room)+"%22"
 			}
-		}
+		}else{count=count+1;}
 		x=x+'&limit=100' 
 		
 		
@@ -386,7 +401,13 @@ this.setState({year:event},() => {
 			}
 	    if(temp.length>0){
             this.setState({list:temp})}else{this.setState({list:result.message})}
-		}else{this.setState({list:result.message})}
+		}else{	count=count+1;
+			if(count===6){
+			this.setState({list:[{Course:"Select a Year, Semester, Department, CCC Requirement, Class Time or Room to browse Course Offerings!"}]})
+			}else{
+			this.setState({list:result.message})	
+			}
+		}
            
 	  }
           else {
@@ -404,6 +425,7 @@ this.setState({year:event},() => {
 }
 handleCCCChange(event){
 	var x= 'https://www.eg.bucknell.edu/~amm042/service/q?'
+	var count=0;
 	this.setState({ccc:event},() => { 
 		
 		if(this.state.semester!==null && this.state.semester!=="unselected"){ 
@@ -412,35 +434,35 @@ handleCCCChange(event){
 			}else{
 				x= x+"&Semester="+this.state.semester
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.year!==null && this.state.year!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"Year="+this.state.year
 			}else{
 				x= x+"&Year="+this.state.year
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.department!==null && this.state.department!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"Department="+this.state.department
 			}else{
 				x= x+"&Department="+this.state.department
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.ccc!==null && this.state.ccc!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"CCCReq="+this.state.ccc
 			}else{
 				x= x+"&CCCReq="+this.state.ccc
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.room!==null && this.state.room!==""){ 
 			if(x.slice(-1)==="?"){
 				x= x+"text=%22"+encodeURIComponent(this.state.room)+"%22"
 			}else{
 				x= x+"&text=%22"+encodeURIComponent(this.state.room)+"%22"
 			}
-		}
+		}else{count=count+1;}
 		
 		x=x+'&limit=100' 
 
@@ -458,7 +480,13 @@ handleCCCChange(event){
 			}
 	    if(temp.length>0){
             this.setState({list:temp})}else{this.setState({list:result.message})}
-		}else{this.setState({list:result.message})}
+		}else{	count=count+1;
+			if(count===6){
+			this.setState({list:[{Course:"Select a Year, Semester, Department, CCC Requirement, Class Time or Room to browse Course Offerings!"}]})
+			}else{
+			this.setState({list:result.message})	
+			}
+		}
            
 	  }
           else {
@@ -476,6 +504,7 @@ handleCCCChange(event){
 handleTimeSubmit(event){
 	
 	var x= 'https://www.eg.bucknell.edu/~amm042/service/q?'
+	var count=0;
 	this.setState({time:event},() =>{ 
 	if(this.state.semester!==null && this.state.semester!=="unselected"){ 
 			if(x.slice(-1)==="?"){
@@ -483,37 +512,39 @@ handleTimeSubmit(event){
 			}else{
 				x= x+"&Semester="+this.state.semester
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.year!==null && this.state.year!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"Year="+this.state.year
 			}else{
 				x= x+"&Year="+this.state.year
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.department!==null && this.state.department!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"Department="+this.state.department
 			}else{
 				x= x+"&Department="+this.state.department
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.ccc!==null && this.state.ccc!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"CCCReq="+this.state.ccc
 			}else{
 				x= x+"&CCCReq="+this.state.ccc
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.room!==null && this.state.room!==""){ 
 			if(x.slice(-1)==="?"){
 				x= x+"text=%22"+encodeURIComponent(this.state.room)+"%22"
 			}else{
 				x= x+"&text=%22"+encodeURIComponent(this.state.room)+"%22"
 			}
-		}
+		}else{count=count+1;}
 		x=x+'&limit=100'  
-	
+	if(count===5 && this.state.time===""){
+		this.setState({list:[{Course:"Select a Year, Semester, Department, CCC Requirement, Class Time or Room to browse Course Offerings!"}]})
+	}else{
 	fetch(x)
 		.then(result=>result.json())
 		.then(result=>{
@@ -531,11 +562,12 @@ handleTimeSubmit(event){
              this.setState({list:[{Course:"Select a Year, Semester, Department, CCC Requirement, Class Time or Room to browse Course Offerings!"}]})
           }
         })	
-		.catch(err=>console.log("Couldn't fetch", err))
+		.catch(err=>console.log("Couldn't fetch", err))}
 });
 }
 handleRoomSubmit(event){
 	var x= 'https://www.eg.bucknell.edu/~amm042/service/q?';
+	var count=0;
 	this.setState({room:event},()=>{ 
 if(this.state.semester!==null && this.state.semester!=="unselected"){ 
 			if(x.slice(-1)==="?"){
@@ -543,35 +575,35 @@ if(this.state.semester!==null && this.state.semester!=="unselected"){
 			}else{
 				x= x+"&Semester="+this.state.semester
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.year!==null && this.state.year!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"Year="+this.state.year
 			}else{
 				x= x+"&Year="+this.state.year
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.department!==null && this.state.department!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"Department="+this.state.department
 			}else{
 				x= x+"&Department="+this.state.department
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.ccc!==null && this.state.ccc!=="unselected"){ 
 			if(x.slice(-1)==="?"){
 				x= x+"CCCReq="+this.state.ccc
 			}else{
 				x= x+"&CCCReq="+this.state.ccc
 			}
-		}
+		}else{count=count+1;}
 		if(this.state.room!==null && this.state.room!==""){ 
 			if(x.slice(-1)==="?"){
 				x= x+"text=%22"+encodeURIComponent(this.state.room)+"%22"
 			}else{
 				x= x+"&text=%22"+encodeURIComponent(this.state.room)+"%22"
 			}
-		}
+		}else{count=count+1;}
 		x=x+'&limit=100' 
 		
 		fetch(x)
@@ -587,7 +619,13 @@ if(this.state.semester!==null && this.state.semester!=="unselected"){
 			}
 	    if(temp.length>0){
             this.setState({list:temp})}else{this.setState({list:[{Course:"No available courses."}]})}
-		}else{this.setState({list:result.message})}
+		}else{	count=count+1;
+			if(count===6){
+			this.setState({list:[{Course:"Select a Year, Semester, Department, CCC Requirement, Class Time or Room to browse Course Offerings!"}]})
+			}else{
+			this.setState({list:result.message})	
+			}
+		}
            
 	 }
           else {
