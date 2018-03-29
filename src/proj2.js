@@ -19,7 +19,7 @@ constructor(props){
     this.props.onDepartmentChange(event.target.value)
   }
 	render(){
-	return (<div class= "col-sm-12 col-md-12 col-lg-3 orng mb-10"> <div className="mb-0"><h4 className="mb-0">Select</h4></div><div><h4 className="mt-0"> Department:</h4></div><select onChange={this.handleSelection}> <option value="unselected">Select a Department</option>
+	return (<div className= "col-sm-12 col-md-12 col-lg-3 orng mb-10"> <div className="mb-0"><h4 className="mb-0">Select</h4></div><div><h4 className="mt-0"> Department:</h4></div><select onChange={this.handleSelection}> <option value="unselected">Select a Department</option>
 			<option value="CSCI"> CSCI </option> 
 			<option value="MUSC"> MUSC </option>
 			<option value="EDUC"> EDUC </option>
@@ -60,7 +60,7 @@ handleSelection(event){
     this.props.onYearChange(event.target.value)
   }
 	render(){
-	return (<div class= "col-sm-12 col-md-12 col-lg-3 orng"> <div><h4 className="mb-0">Select</h4></div><div><h4 className="mt-0"> Year:</h4></div> <select onChange= {this.handleSelection}> <option value="unselected">Select a Year</option>
+	return (<div className= "col-sm-12 col-md-12 col-lg-3 orng"> <div><h4 className="mb-0">Select</h4></div><div><h4 className="mt-0"> Year:</h4></div> <select onChange= {this.handleSelection}> <option value="unselected">Select a Year</option>
 			<option value="2018"> 2018 </option> 
 			<option value="2019"> 2019</option>
 			
@@ -84,7 +84,7 @@ handleSelection(event){
     this.props.onSemesterChange(event.target.value)
   }
 	render(){
-	return (<div class= "col-sm-12 col-md-12 col-lg-3 orng"> <div><h4 className="mb-0">Select</h4></div><div><h4 className="mt-0"> Semester:</h4></div><select onChange= {this.handleSelection}> <option value="unselected">Select a Semester</option>
+	return (<div className= "col-sm-12 col-md-12 col-lg-3 orng"> <div><h4 className="mb-0">Select</h4></div><div><h4 className="mt-0"> Semester:</h4></div><select onChange= {this.handleSelection}> <option value="unselected">Select a Semester</option>
 			<option value="Fall"> Fall </option> 
 			<option value="Spring"> Spring</option>
 			
@@ -107,7 +107,7 @@ handleSelection(event){
     this.props.onCCCChange(event.target.value)
 }
 	render(){
-return (<div class= "col-sm-12 col-md-12 col-lg-3 orng"> <h4>Select CCC Requirement:</h4><select onChange= {this.handleSelection}> <option value="unselected">Select a CCC Requirement</option>
+return (<div className= "col-sm-12 col-md-12 col-lg-3 orng"> <h4>Select CCC Requirement:</h4><select onChange= {this.handleSelection}> <option value="unselected">Select a CCC Requirement</option>
 			<option value="W1"> W1 </option> 
 			<option value="W2"> W2</option>
 			<option value="ARHC"> ARHC</option>
@@ -144,13 +144,13 @@ constructor(props){
 	}
 handleTimeEntry(event){
 	event.preventDefault()
-	console.log("TEST2",this.refs.in.value)
+	
 	this.setState({selectedTime:this.refs.in.value})
     this.props.onTimeSubmit(this.refs.in.value)
 }
 render(){
 
-	return(<form className="orng col-6 mb-10" onSubmit={this.handleTimeEntry}><div><h4 className="mb-0">Enter Class Time:</h4></div><div><h5 className="mt-0 mb-10"> (Example: MWF 9:00-9:52am)</h5></div><input type="text" name="t" ref="in"></input></form>)
+	return(<form className="orng col-sm-12 col-md-6 col-lg-6 mb-10" onSubmit={this.handleTimeEntry}><div><h4 className="mb-0">Enter Class Time:</h4></div><div><h5 className="mt-0 mb-0"> (Example: MWF 9:00-9:52am)</h5></div><div className="mt-0 mb-10"><p className="mt-0 note">*Note: Case Sensitive</p></div><input type="text" name="t" ref="in"></input></form>)
 
 }
 
@@ -168,7 +168,7 @@ handleRoomEntry(event){
 	this.props.onRoomSubmit(this.refs.rm.value)
 }
 render(){
-	return(<form className="orng col-6 mb-10" onSubmit={this.handleRoomEntry}><div><h4 className="mb-0">Enter a Room:</h4></div><div><h5 className="mt-0 mb-10" > (Example: DANA 213)</h5></div><input type="text" name="r" ref="rm"></input></form>)
+	return(<form className="orng col-sm-12 col-md-6 col-lg-6 mb-10" onSubmit={this.handleRoomEntry}><div><h4 className="mb-0">Enter a Room:</h4></div><div><h5 className="mt-0 mb-0" > (Example: DANA 213)</h5></div><div className="mt-0 mb-10"><p className="mt-0 note">*Note: Case Sensitive</p></div><input type="text" name="r" ref="rm"></input></form>)
 
 }
 
@@ -227,8 +227,7 @@ constructor(props){
 			}
 		}
 		x=x+'&limit=100' 
-		console.log(x)
-
+		
 
 	fetch(x)
 		.then(result=>result.json())
@@ -239,13 +238,13 @@ constructor(props){
 		var i
 		for(i=0; i<result.message.length-1; i++){
 			
-			if(result.message[i]['Meeting Time'].includes(this.state.time)){ temp.push(result.message[i]); console.log("TEMP", temp)} 
+			if(result.message[i]['Meeting Time'].includes(this.state.time)){ temp.push(result.message[i]); } 
 			}
 	    if(temp.length>0){
             this.setState({list:temp})}else{this.setState({list:result.message})}
 		}else{this.setState({list:result.message})}
            
-	   console.log(this.state.list)}
+	   }
           else {
 		if(this.state.year===null && this.state.semester===null && this.state.department===null && this.state.ccc===null){
 		 this.setState({list:[{Course:"Select a Year, Semester, Department, CCC Requirement, Class Time or Room to browse Course Offerings!"}]})
@@ -297,7 +296,7 @@ this.setState({year:event},() => {
 			}
 		}
 		x=x+'&limit=100' 
-		console.log(x)
+		
 
 	fetch(x)
 		.then(result=>result.json())
@@ -308,13 +307,13 @@ this.setState({year:event},() => {
 		var i
 		for(i=0; i<result.message.length-1; i++){
 			
-			if(result.message[i]['Meeting Time'].includes(this.state.time)){ temp.push(result.message[i]); console.log("TEMP", temp)} 
+			if(result.message[i]['Meeting Time'].includes(this.state.time)){ temp.push(result.message[i]); } 
 			}
 	    if(temp.length>0){
             this.setState({list:temp})}else{this.setState({list:result.message})}
 		}else{this.setState({list:result.message})}
            
-	   console.log(this.state.list)}
+	   }
           else {
 		if(this.state.year===null && this.state.semester===null && this.state.department===null && this.state.ccc===null){
 		 this.setState({list:[{Course:"Select a Year, Semester, Department, CCC Requirement, Class Time or Room to browse Course Offerings!"}]})
@@ -370,7 +369,7 @@ this.setState({year:event},() => {
 			}
 		}
 		x=x+'&limit=100' 
-		console.log(x)
+		
 		
 
 
@@ -383,13 +382,13 @@ this.setState({year:event},() => {
 		var i
 		for(i=0; i<result.message.length-1; i++){
 			
-			if(result.message[i]['Meeting Time'].includes(this.state.time)){ temp.push(result.message[i]); console.log("TEMP", temp)} 
+			if(result.message[i]['Meeting Time'].includes(this.state.time)){ temp.push(result.message[i]); } 
 			}
 	    if(temp.length>0){
             this.setState({list:temp})}else{this.setState({list:result.message})}
 		}else{this.setState({list:result.message})}
            
-	   console.log(this.state.list)}
+	  }
           else {
 		if(this.state.year===null && this.state.semester===null && this.state.department===null && this.state.ccc===null){
 		 this.setState({list:[{Course:"Select a Year, Semester, Department, CCC Requirement, Class Time or Room to browse Course Offerings!"}]})
@@ -445,7 +444,7 @@ handleCCCChange(event){
 		
 		x=x+'&limit=100' 
 
-		console.log(x)
+		
 		fetch(x)
 		.then(result=>result.json())
 		.then(result=>{
@@ -455,13 +454,13 @@ handleCCCChange(event){
 		var i
 		for(i=0; i<result.message.length-1; i++){
 			
-			if(result.message[i]['Meeting Time'].includes(this.state.time)){ temp.push(result.message[i]); console.log("TEMP", temp)} 
+			if(result.message[i]['Meeting Time'].includes(this.state.time)){ temp.push(result.message[i]); } 
 			}
 	    if(temp.length>0){
             this.setState({list:temp})}else{this.setState({list:result.message})}
 		}else{this.setState({list:result.message})}
            
-	   console.log(this.state.list)}
+	  }
           else {
 		if(this.state.year===null && this.state.semester===null && this.state.department===null && this.state.ccc===null){
 		 this.setState({list:[{Course:"Select a Year, Semester, Department, CCC Requirement, Class Time or Room to browse Course Offerings!"}]})
@@ -514,17 +513,17 @@ handleTimeSubmit(event){
 			}
 		}
 		x=x+'&limit=100'  
-	console.log(x)
+	
 	fetch(x)
 		.then(result=>result.json())
 		.then(result=>{
           if (result.message.length>0){
 		var temp=[]
 		var i
-		console.log("who",result.message)
+		
 		for(i=0; i<result.message.length-1; i++){
 			
-			if(result.message[i]['Meeting Time'].includes(this.state.time)){ temp.push(result.message[i]); console.log("TEMP", temp)} 
+			if(result.message[i]['Meeting Time'].includes(this.state.time)){ temp.push(result.message[i]); } 
 			}
 	    if(temp.length>0 ){
             this.setState({list:temp})}else{if(this.state.time===""){this.setState({list:result.message})}else{this.setState({list:[{Course:"No available courses."}]})}}}
@@ -574,7 +573,7 @@ if(this.state.semester!==null && this.state.semester!=="unselected"){
 			}
 		}
 		x=x+'&limit=100' 
-		console.log(x)
+		
 		fetch(x)
 		.then(result=>result.json())
 		.then(result=>{
@@ -584,13 +583,13 @@ if(this.state.semester!==null && this.state.semester!=="unselected"){
 		var i
 		for(i=0; i<result.message.length-1; i++){
 			
-			if(result.message[i]['Meeting Time'].includes(this.state.time)){ temp.push(result.message[i]); console.log("TEMP4", temp)} 
+			if(result.message[i]['Meeting Time'].includes(this.state.time)){ temp.push(result.message[i]); } 
 			}
 	    if(temp.length>0){
             this.setState({list:temp})}else{this.setState({list:[{Course:"No available courses."}]})}
 		}else{this.setState({list:result.message})}
            
-	   console.log(this.state.list)}
+	 }
           else {
 		if(this.state.year===null && this.state.semester===null && this.state.department===null && this.state.ccc===null){
 		 this.setState({list:[{Course:"Select a Year, Semester, Department, CCC Requirement, Class Time or Room to browse Course Offerings!"}]})
@@ -605,7 +604,7 @@ if(this.state.semester!==null && this.state.semester!=="unselected"){
 componentDidMount(){
 
 	var x= 'https://www.eg.bucknell.edu/~amm042/service/q?Semester=' + this.state.semester +'&Year=' +this.state.year+ '&Department=' + this.state.department+ '&limit=100' 
-	console.log(x)
+	
 
 
 	fetch(x)
@@ -624,17 +623,17 @@ componentDidMount(){
 
 	render(){
 	var options
-	console.log("nice",this.state.list.length)
+	
 	if(this.state.list.length>1){
-	  options = this.state.list.map(b=>{if(b.Room==""){return(<li className="orng fill  col-lg-3 col-sm-12 col-md-6  "><div className="bord"><div className="underl d">{b.Course}</div><div className="d2">{"'"+b.Title+"'"}</div><div>{b["Meeting Time"]}</div></div></li>)}else{ return(<li className="orng fill  col-lg-3 col-sm-12 col-md-6  "><div className="bord"><div className="underl d">{b.Course}</div><div>{"'"+b.Title+"'"}</div><div>{b["Meeting Time"]}</div><div>{"Room: "+b.Room}</div></div></li>)}})
+	  options = this.state.list.map(b=>{if(b.Room===""){return(<li key={b.Course}className="orng fill  col-lg-3 col-sm-12 col-md-6  "><div className="bord"><div className="underl cName">{b.Course}</div><div className="cTitle">{"'"+b.Title+"'"}</div><div>{b["Meeting Time"]}</div></div></li>)}else{ return(<li key={b.Course} className="orng fill  col-lg-3 col-sm-12 col-md-6  "><div className="bord"><div className="underl cName">{b.Course}</div><div>{"'"+b.Title+"'"}</div><div>{b["Meeting Time"]}</div><div>{"Room: "+b.Room}</div></div></li>)}})
 	 
 	}else{
-	  options = this.state.list.map(b=><li className="orng col-12">{b.Course}</li>)
+	  options = this.state.list.map(b=><li key={b.Course} className="orng col-12">{b.Course}</li>)
 }
 	
-	console.log("OP",options)
-	return (<Container ><Row><div className="col-12"><img src={"icon.png"} className="icon"></img><img src={"logo.png"} className="logo"></img></div></Row><Row className="head"> <h1 className="list b"> Bucknell Course Catalog</h1></Row><Row className="content"><YearSelect onYearChange={this.handleYearChange} className= "col-sm-12 col-md-12 col-lg-3" /> <SemesterSelect onSemesterChange= {this.handleSemesterChange} className= "col-sm-12 col-md-12 col-lg-3" /> <DepartmentSelect onDepartmentChange={this.handleDepartmentChange} className= "col-sm-12 col-md-12 col-lg-3" />
-<CCCSelect onCCCChange={this.handleCCCChange} className= "col-sm-12 col-md-12 col-lg-3" /><TimeSelect onTimeSubmit={ this.handleTimeSubmit} className="col-6 "/> <RoomSelect onRoomSubmit={this.handleRoomSubmit} className="col-6 in"/> </Row><Row className="head av"><h1 className="list b" >Available Courses</h1></Row><Row className="content"><ul className="col-12 list-unstyled l" ><Row>{options}</Row></ul>
+	
+	return (<Container ><Row><div className="col-12"><img src={"icon.png"} className="icon" alt="icon"></img><img src={"logo.png"} className="logo" alt="logo"></img></div></Row><Row className="head"> <h1 className="list secTitle"> Bucknell Course Catalog</h1></Row><Row className="content"><YearSelect onYearChange={this.handleYearChange} className= "col-sm-12 col-md-12 col-lg-3" /> <SemesterSelect onSemesterChange= {this.handleSemesterChange} className= "col-sm-12 col-md-12 col-lg-3" /> <DepartmentSelect onDepartmentChange={this.handleDepartmentChange} className= "col-sm-12 col-md-12 col-lg-3" />
+<CCCSelect onCCCChange={this.handleCCCChange} className= "col-sm-12 col-md-12 col-lg-3" /><TimeSelect onTimeSubmit={ this.handleTimeSubmit} className="col-sm-12"/> <RoomSelect onRoomSubmit={this.handleRoomSubmit} className="col-sm-12"/> </Row><Row className="head av"><h1 className="list secTitle" >Available Courses</h1></Row><Row className="content"><ul className="col-12 list-unstyled l" ><Row>{options}</Row></ul>
 		 </Row> </Container>
 
 

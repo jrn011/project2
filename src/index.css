@@ -16,7 +16,7 @@ text-align: center;
 	margin: 0 auto;
 	
 }
-.b{
+.secTitle{
 	
 	text-decoration:underline;
 	color:#E87722;
@@ -128,10 +128,13 @@ font-size:45px!important;
 margin-top:0px;
 }
 
-.d{
+.cName{
 font-size:20px;
 }
-.d2{
+.cTitle{
 font-size:18px;
 }
 
+.note{
+font-size:12px;
+}
