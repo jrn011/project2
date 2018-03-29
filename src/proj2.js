@@ -107,7 +107,7 @@ handleSelection(event){
     this.props.onCCCChange(event.target.value)
 }
 	render(){
-return (<div className= "col-sm-12 col-md-12 col-lg-3 orng"> <h4>Select CCC Requirement:</h4><select onChange= {this.handleSelection}> <option value="unselected">Select a CCC Requirement</option>
+return (<div className= "col-sm-12 col-md-12 col-lg-3 orng"> <h4>Select CCC Requirement:</h4><select onChange= {this.handleSelection} className="cselect"> <option value="unselected">Select a CCC Requirement</option>
 			<option value="W1"> W1 </option> 
 			<option value="W2"> W2</option>
 			<option value="ARHC"> ARHC</option>
