@@ -150,7 +150,7 @@ handleTimeEntry(event){
 }
 render(){
 
-	return(<form className="orng col-sm-12 col-md-6 col-lg-6 mb-10" onSubmit={this.handleTimeEntry}><div><h4 className="mb-0">Enter Class Time:</h4></div><div><h5 className="mt-0 mb-0"> (Example: MWF 9:00-9:52am)</h5></div><div className="mt-0 mb-10"><p className="mt-0 note">*Note: Case Sensitive, 'MWF' or 'M' will display all classes on those days.</p></div><input type="text" name="t" ref="in"></input></form>)
+	return(<form className="orng col-sm-12 col-md-6 col-lg-6 mb-10" onSubmit={this.handleTimeEntry}><div><h4 className="mb-0">Enter Class Time:</h4></div><div><h5 className="mt-0 mb-10"> (Example: MWF 9:00-9:52am)</h5></div><input type="text" name="t" ref="in"></input><div className="mt-10 mb-0 "><p className="mt-0 mb-0 note">*Note: Case Sensitive, Partial input allowed.</p></div><div className="mt-0 mb-0"><p className="mt-0 mb-0 note">'M' displays all classes that have class on Monday.</p></div><div className="mt-0 mb-10"><p className="mt-0 mb-0 note">'1:00' displays all classes that have class at 1:00.</p></div></form>)
 
 }
 
@@ -168,7 +168,7 @@ handleRoomEntry(event){
 	this.props.onRoomSubmit(this.refs.rm.value)
 }
 render(){
-	return(<form className="orng col-sm-12 col-md-6 col-lg-6 mb-10" onSubmit={this.handleRoomEntry}><div><h4 className="mb-0">Enter a Room:</h4></div><div><h5 className="mt-0 mb-0" > (Example: DANA 213)</h5></div><div className="mt-0 mb-10"><p className="mt-0 note">*Note: Case Sensitive, 'DANA' will display all classes in Dana.</p></div><input type="text" name="r" ref="rm"></input></form>)
+	return(<form className="orng col-sm-12 col-md-6 col-lg-6 mb-10" onSubmit={this.handleRoomEntry}><div><h4 className="mb-0">Enter a Room:</h4></div><div><h5 className="mt-0 mb-10" > (Example: DANA 213)</h5></div><input type="text" name="r" ref="rm"></input><div className="mt-10 mb-0"><p className="mt-0 mb-0 note">*Note: Case Sensitive, Partial input allowed. </p></div><div className="mt-0 mb-10"><p className="mt-0 note">'DANA' will display all classes in Dana.</p></div></form>)
 
 }
 
