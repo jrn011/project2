@@ -401,7 +401,7 @@ this.setState({year:event},() => {
 			}
 	    if(temp.length>0){
             this.setState({list:temp})}else{this.setState({list:result.message})}
-		}else{	count=count+1;
+		}else{ console.log("wat");	count=count+1;
 			if(count===6){
 			this.setState({list:[{Course:"Select a Year, Semester, Department, CCC Requirement, Class Time or Room to browse Course Offerings!"}]})
 			}else{
@@ -663,7 +663,7 @@ componentDidMount(){
 	var options
 	
 	if(this.state.list.length>1){
-	  options = this.state.list.map(b=>{if(b.Room===""){return(<li key={b.Course}className="orng fill  col-lg-3 col-sm-12 col-md-6  "><div className="bord"><div className="underl cName">{b.Course}</div><div className="cTitle">{"'"+b.Title+"'"}</div><div>{b["Meeting Time"]}</div></div></li>)}else{ return(<li key={b.Course} className="orng fill  col-lg-3 col-sm-12 col-md-6  "><div className="bord"><div className="underl cName">{b.Course}</div><div>{"'"+b.Title+"'"}</div><div>{b["Meeting Time"]}</div><div>{"Room: "+b.Room}</div></div></li>)}})
+	  options = this.state.list.map(b=>{if(b.Room===""){return(<li key={b.Course}className="orng fill  col-lg-3 col-sm-12 col-md-6  "><div className="bord"><div className="underl cName">{b.Course}</div><div className="cTitle">{"'"+b.Title+"'"}</div><div>{b["Meeting Time"]}</div><div>{"CRN: "+ b.CRN}</div></div></li>)}else{ return(<li key={b.Course} className="orng fill  col-lg-3 col-sm-12 col-md-6  "><div className="bord"><div className="underl cName">{b.Course}</div><div>{"'"+b.Title+"'"}</div><div>{b["Meeting Time"]}</div><div>{"Room: "+b.Room}</div><div>{"CRN: "+ b.CRN}</div></div></li>)}})
 	 
 	}else{
 	  options = this.state.list.map(b=><li key={b.Course} className="orng col-12">{b.Course}</li>)
