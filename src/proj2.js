@@ -150,7 +150,7 @@ handleTimeEntry(event){
 }
 render(){
 
-	return(<form className="orng col-sm-12 col-md-6 col-lg-6 mb-10" onSubmit={this.handleTimeEntry}><div><h4 className="mb-0">Enter Class Time:</h4></div><div><h5 className="mt-0 mb-0"> (Example: MWF 9:00-9:52am)</h5></div><div className="mt-0 mb-10"><p className="mt-0 note">*Note: Case Sensitive</p></div><input type="text" name="t" ref="in"></input></form>)
+	return(<form className="orng col-sm-12 col-md-6 col-lg-6 mb-10" onSubmit={this.handleTimeEntry}><div><h4 className="mb-0">Enter Class Time:</h4></div><div><h5 className="mt-0 mb-0"> (Example: MWF 9:00-9:52am)</h5></div><div className="mt-0 mb-10"><p className="mt-0 note">*Note: Case Sensitive, 'MWF' or 'M' will display all classes on those days.</p></div><input type="text" name="t" ref="in"></input></form>)
 
 }
 
@@ -168,7 +168,7 @@ handleRoomEntry(event){
 	this.props.onRoomSubmit(this.refs.rm.value)
 }
 render(){
-	return(<form className="orng col-sm-12 col-md-6 col-lg-6 mb-10" onSubmit={this.handleRoomEntry}><div><h4 className="mb-0">Enter a Room:</h4></div><div><h5 className="mt-0 mb-0" > (Example: DANA 213)</h5></div><div className="mt-0 mb-10"><p className="mt-0 note">*Note: Case Sensitive</p></div><input type="text" name="r" ref="rm"></input></form>)
+	return(<form className="orng col-sm-12 col-md-6 col-lg-6 mb-10" onSubmit={this.handleRoomEntry}><div><h4 className="mb-0">Enter a Room:</h4></div><div><h5 className="mt-0 mb-0" > (Example: DANA 213)</h5></div><div className="mt-0 mb-10"><p className="mt-0 note">*Note: Case Sensitive, 'DANA' will display all classes in Dana.</p></div><input type="text" name="r" ref="rm"></input></form>)
 
 }
 
